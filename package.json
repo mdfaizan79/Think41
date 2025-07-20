@@ -1,0 +1,25 @@
+{
+  "name": "think41",
+  "version": "1.0.0",
+  "description": "Airport Bagsystem",
+  "main": "index.js",
+  "type":"module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdfaizan79/Think41.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mdfaizan79/Think41/issues"
+  },
+  "homepage": "https://github.com/mdfaizan79/Think41#readme",
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.16.4"
+  }
+}
