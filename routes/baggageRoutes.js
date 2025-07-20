@@ -3,7 +3,32 @@ import Scan from '../models/Scan.js';
 
 const router = express.Router();
 
+
+// To POST 
+router.post('/scans', async (req, res) => {
+  try {
+    const { bag_tag_id, scan_time, destination_gate, location } = req.body;
+
+    if (!bag_tag_id || !scan_time || !destination_gate || !location) {
+      return res.status(400).json({ message: "Missing required fields" });
+    }
+
+    const newScan = new Scan({
+      bag_tag_id,
+      scan_time: new Date(scan_time),
+      destination_gate,
+      location
+    });
+
+    await newScan.save();
+    res.status(201).json({ message: "Scan inserted successfully", scan: newScan });
+  } catch (error) {
+    res.status(500).json({ message: "Internal Server Error", error: error.message });
+  }
+});
+
 // Task 1
+
 
 router.get('/scans/bag/:bag_tag_id', async (req, res) => {
   const { bag_tag_id } = req.params;
