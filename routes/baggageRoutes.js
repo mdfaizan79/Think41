@@ -3,7 +3,8 @@ import Scan from '../models/Scan.js';
 
 const router = express.Router();
 
-// 1. Last Known Location of a Bag
+// Task 1
+
 router.get('/scans/bag/:bag_tag_id', async (req, res) => {
   const { bag_tag_id } = req.params;
   const { latest } = req.query;
@@ -21,7 +22,7 @@ router.get('/scans/bag/:bag_tag_id', async (req, res) => {
   }
 });
 
-// 2. Bags En-route to a Gate
+// Task 2
 router.get('/active/gate/:destination_gate', async (req, res) => {
   const { destination_gate } = req.params;
   const since_minutes = parseInt(req.query.since_minutes) || 10;
@@ -53,7 +54,7 @@ router.get('/active/gate/:destination_gate', async (req, res) => {
   }
 });
 
-// 3. Count Bags per Gate
+// Task 3
 router.get('/stats/gate-counts', async (req, res) => {
   const since_minutes = parseInt(req.query.since_minutes) || 10;
   const sinceTime = new Date(Date.now() - since_minutes * 60000);
