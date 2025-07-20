@@ -1,11 +1,13 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 import baggageRoutes from './routes/baggageRoutes.js';
 
 const app = express();
 app.use(express.json());
+dotenv.config();
 
-mongoose.connect('mongodb://localhost:27017/baggageDB', {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
